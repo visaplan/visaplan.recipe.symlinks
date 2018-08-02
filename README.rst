@@ -6,19 +6,21 @@
 visaplan.recipe.symlinks
 ========================
 
+**Not working yet - resource detection missing**
+
 Creates symbolic links to the resources which are registered by the installed
-Zope products / packages.  Allows to exclude all /++resource++* paths from the
+Zope products / packages.  Allows to exclude all ``/++resource++*`` paths from the
 RewriteRule which hands the requests over to ZServer.
 This serves two purposes:
 
-- The /++resource++* paths can be handled by your front http server, e.g. Apache,
+- The ``/++resource++*`` paths can be handled by your front http server, e.g. Apache,
   instead of the Zope server, which is likely to be better in this task
 - All changes to those resources are effective immediately when they are next requested,
   not requiring a Zope restart nor a refresh of the compilation,
   which is useful during develoment.
 
 Currently this recipe requires an operating system which provides native
-symbolic links support via the os.symlink function.
+symbolic links support via the ``os.symlink`` function.
 
 Features
 --------
@@ -29,30 +31,9 @@ Features
   This allows those resources to be served by the front http server rather than
   proceeding them to the Zope server and thus unburden the Python threads.
 
-  It also allows to use /++resource++* paths in error pages including those
+  It also allows to use ``/++resource++*`` paths in error pages including those
   which are used by the front-end server to indicate the Zope process to be
   down (HTTP status codes 5xx).
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder.
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
 
 
 Usage
@@ -62,7 +43,7 @@ Add a visaplan.recipe.symlinks part to your buildout::
 
     [buildout]
 
-    ... 
+    ...
     parts =
         ...
         symlinks
@@ -104,11 +85,6 @@ relative-links
         Will fail in cases the use of relative paths is not possible or not
         advisable, e.g. if the path to document-root contains symbolic links.
 
-    auto
-        use relative paths, if possible.
-
-    For now, only absolute link targets are implemented (relative-links = off).
-    
 link-leaves
     Allowed values are:
 
@@ -118,7 +94,7 @@ link-leaves
         for each single resource ("leaf").  This can be considered a little bit
         more safe, as it won't make available any resource which was added
         after built time.
-        
+
     no, off
         For products which register a resource directory, simply create a
         symbolic link to that directory.
@@ -130,8 +106,8 @@ link-leaves
         ("off"), and leaf links for all other packages.
 
         Once implemented, this will likely become the default.
-        
-    For now, only links-leaves = off is implemented.
+
+    For now, the 'auto' choice is not yet implemented.
 
 
 Contribute
@@ -139,7 +115,6 @@ Contribute
 
 - Issue Tracker: https://github.com/visaplan/visaplan.recipe.symlinks/issues
 - Source Code: https://github.com/visaplan/visaplan.recipe.symlinks
-- Documentation: https://docs.plone.org/foo/bar
 
 
 Support
