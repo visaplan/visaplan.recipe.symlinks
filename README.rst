@@ -53,24 +53,26 @@ Add a visaplan.recipe.symlinks part to your buildout::
     document-root = ${buildout:parts-directory}/htdocs
     eggs = ${instance:eggs}
 
-and then running ``bin/buildout``
+and then run ``bin/buildout``.
 
 
 Options
 -------
 
 document-root
-    The DocumentRoot of your VirtualHost (in Apache-speak),
+    The ``DocumentRoot`` of your VirtualHost (in Apache-speak),
     which is the location your http server will start looking for the files to
     serve.
 
-    The default is a ``htdocs`` subdirectory of (``${buildout:parts-directory}``);
+    The default is a ``htdocs`` subdirectory of ``${buildout:parts-directory}``;
     it will be created unless already present.
 
 eggs
     The list of eggs which are installed to your Zope instance;
     if you have an ``[instance]`` section in your buildout script,
     ``${instance:eggs}`` will be the default.
+
+    *(not yet implemented)*
 
 relative-links
     Determines whether relative links will be created.
@@ -80,7 +82,8 @@ relative-links
         use absolute paths as link targets
 
     yes, on
-        use paths relative to ``${document-root}``.
+        use paths relative to ``${document-root}`` (or to the created
+        directories, respectively).
 
         Will fail in cases the use of relative paths is not possible or not
         advisable, e.g. if the path to document-root contains symbolic links.
@@ -102,12 +105,12 @@ link-leaves
         This comes in handy for development.
 
     auto
-        Create symbolic links to resource directories for developent packages
-        ("off"), and leaf links for all other packages.
+        Create symbolic links to resource directories for development packages
+        (like ``yes``), and leaf links for all other packages.
 
         Once implemented, this will likely become the default.
 
-    For now, the 'auto' choice is not yet implemented.
+    For now, the ``auto`` choice is not yet implemented.
 
 
 Contribute
@@ -128,4 +131,5 @@ License
 -------
 
 The project is licensed under the GPLv2.
+
 .. vim: tw=79 cc=+1 sw=4 sts=4 si et
