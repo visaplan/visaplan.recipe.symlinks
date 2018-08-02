@@ -39,8 +39,7 @@ setup(
     author_email='tobias.herp@visaplan.com',
     url='https://pypi.org/project/visaplan.recipe.symlinks',
     license='GPL version 2',
-    # packages=find_packages('src', exclude=['ez_setup']),
-    packages=find_packages(),
+    packages=find_packages('src'),
     namespace_packages=[
         'visaplan',
         'visaplan.recipe',
