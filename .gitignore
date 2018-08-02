@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+## virtualenv
+bin/
+include/
+lib/
+lib64
+
+## SCM
+.svn/
+auto.msg
