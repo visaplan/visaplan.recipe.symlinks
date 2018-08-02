@@ -5,7 +5,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 VERSION = (open('VERSION').read().strip()
-           # + '.dev1'  # in branches only
+           + '.dev1'  # in branches only
            )
 
 
@@ -32,7 +32,7 @@ setup(
         "Intended Audience :: Developers",
         'Intended Audience :: System Administrators',
         "Operating System :: POSIX",
-        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     # keywords='Python Plone',
     author='Tobias Herp',
