@@ -108,6 +108,9 @@ bin/
 include/
 lib/
 lib64
+# ... PIP artifacts
+man
+pip-selfcheck.json
 
 ## SCM
 .svn/
