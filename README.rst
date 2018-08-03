@@ -25,7 +25,7 @@ symbolic links support via the ``os.symlink`` function.
 Features
 --------
 
-- Creates sybolic links for every resource which is registered to a Zope
+- Creates symbolic links for every resource which is registered to a Zope
   instance.
 
   This allows those resources to be served by the front http server rather than
@@ -60,7 +60,7 @@ Options
 -------
 
 document-root
-    The ``DocumentRoot`` of your VirtualHost (in Apache-speak),
+    The ``DocumentRoot`` of your ``VirtualHost`` (in Apache-speak),
     which is the location your http server will start looking for the files to
     serve.
 
@@ -78,22 +78,24 @@ relative-links
     Determines whether relative links will be created.
     Allowed values are:
 
-    no, off
-        use absolute paths as link targets
-
     yes, on
-        use paths relative to ``${document-root}`` (or to the created
+        use paths relative to ``document-root`` (or to the created
         directories, respectively).
 
-        Will fail in cases the use of relative paths is not possible or not
-        advisable, e.g. if the path to document-root contains symbolic links.
+        Might fail in cases the use of relative paths is not possible or not
+        advisable, e.g. if the path to ``document-root`` contains symbolic links.
+
+        *(No such checks implemented currently)*
+
+    no, off
+        use absolute paths as link targets
 
 link-leaves
     Allowed values are:
 
     yes, on
         For products which register a resource directory, create a matching
-        directory below ``${document-root}`` and create a dedicated symbolic link
+        directory below ``document-root`` and create a dedicated symbolic link
         for each single resource ("leaf").  This can be considered a little bit
         more safe, as it won't make available any resource which was added
         after built time.
